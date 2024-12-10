@@ -1,2 +1,11 @@
-build:
-  nodeVersion: 18
+services:
+  - type: web
+    name: n8n
+    env: node
+    buildCommand: npm install
+    startCommand: n8n
+    nodeVersion: 18
+    plan: free
+    disk:
+      name: data
+      sizeGB: 1
