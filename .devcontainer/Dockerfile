@@ -16,3 +16,21 @@ EXPOSE 5678
 
 # Comando para iniciar o N8N
 CMD ["n8n"]
+
+# Use uma imagem com Node.js na versão correta
+FROM node:18
+
+# Instale dependências adicionais e copie arquivos
+RUN apt-get update && apt-get install -y \
+    openssh-client \
+    bash \
+    sudo
+
+# Instale n8n globalmente
+RUN npm install -g n8n
+
+# Exponha a porta usada pelo N8N
+EXPOSE 5678
+
+# Comando para iniciar o N8N
+CMD ["n8n"]
